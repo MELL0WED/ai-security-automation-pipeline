@@ -1,0 +1,45 @@
+name: AI Security Automation Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  security-scan-and-triage:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Semgrep scan
+        run: |
+          semgrep --config=auto benchmark/findings-python/ --json --output=results/ci_scan.json
+
+      - name: Run agentic triage pipeline
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          python3 run_pipeline.py
+
+      - name: Upload results as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-pipeline-results
+          path: results/
+
+      - name: Post summary
+        run: |
+          echo "## Security Pipeline Results" >> $GITHUB_STEP_SUMMARY
+          cat results/agentic_pipeline.json | python3 -c "import json,sys; d=json.load(sys.stdin); print(f'- Escalation rate: {d[\"summary\"][\"escalation_rate_pct\"]}%'); print(f'- Verified rate on auto-fixed: {d[\"summary\"][\"verified_rate_on_auto_fixed_pct\"]}%')" >> $GITHUB_STEP_SUMMARY
