@@ -1,0 +1,157 @@
+{
+  "mode": "agentic",
+  "results": [
+    {
+      "rule": "python.lang.security.audit.non-literal-import.non-literal-import",
+      "file": "dynamic_import.py",
+      "confidence": "LOW",
+      "decision": "escalate",
+      "original_finding_removed": null,
+      "new_findings_after_patch": null,
+      "verified": false
+    },
+    {
+      "rule": "python.lang.security.audit.non-literal-import.non-literal-import",
+      "file": "dynamic_import_2.py",
+      "confidence": "LOW",
+      "decision": "escalate",
+      "original_finding_removed": null,
+      "new_findings_after_patch": null,
+      "verified": false
+    },
+    {
+      "rule": "python.lang.security.audit.network.bind.avoid-bind-to-all-interfaces",
+      "file": "hardcoded_bind.py",
+      "confidence": "HIGH",
+      "decision": "auto_fix",
+      "original_finding_removed": true,
+      "new_findings_after_patch": 0,
+      "verified": true
+    },
+    {
+      "rule": "python.lang.security.deserialization.pickle.avoid-pickle",
+      "file": "insecure_deserialize.py",
+      "confidence": "LOW",
+      "decision": "escalate",
+      "original_finding_removed": null,
+      "new_findings_after_patch": null,
+      "verified": false
+    },
+    {
+      "rule": "python.lang.security.deserialization.pickle.avoid-pickle",
+      "file": "insecure_deserialize_2.py",
+      "confidence": "LOW",
+      "decision": "escalate",
+      "original_finding_removed": null,
+      "new_findings_after_patch": null,
+      "verified": false
+    },
+    {
+      "rule": "python.lang.security.audit.eval-detected.eval-detected",
+      "file": "insecure_eval.py",
+      "confidence": "LOW",
+      "decision": "escalate",
+      "original_finding_removed": null,
+      "new_findings_after_patch": null,
+      "verified": false
+    },
+    {
+      "rule": "python.lang.security.audit.eval-detected.eval-detected",
+      "file": "insecure_eval_2.py",
+      "confidence": "LOW",
+      "decision": "escalate",
+      "original_finding_removed": null,
+      "new_findings_after_patch": null,
+      "verified": false
+    },
+    {
+      "rule": "python.lang.security.audit.exec-detected.exec-detected",
+      "file": "insecure_exec.py",
+      "confidence": "LOW",
+      "decision": "escalate",
+      "original_finding_removed": null,
+      "new_findings_after_patch": null,
+      "verified": false
+    },
+    {
+      "rule": "python.lang.security.deserialization.avoid-pyyaml-load.avoid-pyyaml-load",
+      "file": "insecure_yaml.py",
+      "confidence": "HIGH",
+      "decision": "auto_fix",
+      "original_finding_removed": true,
+      "new_findings_after_patch": 0,
+      "verified": true
+    },
+    {
+      "rule": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "file": "sql_injection.py",
+      "confidence": "HIGH",
+      "decision": "auto_fix",
+      "original_finding_removed": true,
+      "new_findings_after_patch": 0,
+      "verified": true
+    },
+    {
+      "rule": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "file": "sql_injection_2.py",
+      "confidence": "HIGH",
+      "decision": "auto_fix",
+      "original_finding_removed": true,
+      "new_findings_after_patch": 0,
+      "verified": true
+    },
+    {
+      "rule": "python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+      "file": "subprocess_call.py",
+      "confidence": "HIGH",
+      "decision": "auto_fix",
+      "original_finding_removed": true,
+      "new_findings_after_patch": 0,
+      "verified": true
+    },
+    {
+      "rule": "python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+      "file": "subprocess_shell.py",
+      "confidence": "LOW",
+      "decision": "escalate",
+      "original_finding_removed": null,
+      "new_findings_after_patch": null,
+      "verified": false
+    },
+    {
+      "rule": "python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+      "file": "subprocess_shell_2.py",
+      "confidence": "HIGH",
+      "decision": "auto_fix",
+      "original_finding_removed": true,
+      "new_findings_after_patch": 0,
+      "verified": true
+    },
+    {
+      "rule": "python.lang.security.audit.md5-used-as-password.md5-used-as-password",
+      "file": "weak_crypto.py",
+      "confidence": "LOW",
+      "decision": "escalate",
+      "original_finding_removed": null,
+      "new_findings_after_patch": null,
+      "verified": false
+    },
+    {
+      "rule": "python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1",
+      "file": "weak_crypto_sha1.py",
+      "confidence": "HIGH",
+      "decision": "auto_fix",
+      "original_finding_removed": true,
+      "new_findings_after_patch": 0,
+      "verified": true
+    }
+  ],
+  "summary": {
+    "mode": "agentic",
+    "total_findings": 16,
+    "auto_fixed_count": 7,
+    "escalated_count": 9,
+    "escalation_rate_pct": 56.2,
+    "verified_rate_on_auto_fixed_pct": 100.0
+  }
+}
